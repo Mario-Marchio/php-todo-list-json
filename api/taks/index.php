@@ -1,6 +1,6 @@
 <?php
 
-$database_path = __DIR__ . '/tasks.json';
+$database_path = __DIR__ . '/../../database/tasks.json';
 
 $json_data = file_get_contents($database_path);
 
@@ -13,10 +13,10 @@ if ($new_task) {
     $json_tasks = json_encode($tasks);
     file_put_contents($database_path, $json_tasks);
 
-    header('content-type: application/json');
+    header('Content-Type: application/json');
     echo $new_task;
 }else {
-    header('content-type: application/json');
+    header('Content-Type: application/json');
 
     echo json_encode($tasks);
 }
